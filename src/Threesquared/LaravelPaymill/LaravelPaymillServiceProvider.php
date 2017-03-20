@@ -36,7 +36,7 @@ class LaravelPaymillServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['paymill'] = $this->app->share(function ($app) {
+        $this->app->singleton('paymill', function ($app) {
 
             $env = env('PAYMILL_ENV', 'test');
 
